@@ -1,0 +1,336 @@
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+body {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  perspective: 16em;
+}
+
+.scene {
+  position: relative;
+  -webkit-animation: sceneRotate 30s infinite linear;
+          animation: sceneRotate 30s infinite linear;
+}
+@-webkit-keyframes sceneRotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes sceneRotate {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.cube {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  -webkit-animation: cubeBounce 4s infinite ease-out, cubeLeft 4s infinite linear, cubeHeight 4s infinite ease-out;
+          animation: cubeBounce 4s infinite ease-out, cubeLeft 4s infinite linear, cubeHeight 4s infinite ease-out;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.cube:nth-child(2) > * {
+  background-color: lightgreen;
+}
+@-webkit-keyframes cubeBounce {
+  0%, 40% {
+    bottom: calc(-3em + 2px);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  70% {
+    bottom: 1em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    bottom: calc(-3em + 2px);
+    transform: rotateX(90deg) rotateY(180deg) rotateZ(180deg);
+  }
+}
+@keyframes cubeBounce {
+  0%, 40% {
+    bottom: calc(-3em + 2px);
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  70% {
+    bottom: 1em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    bottom: calc(-3em + 2px);
+    transform: rotateX(90deg) rotateY(180deg) rotateZ(180deg);
+  }
+}
+@-webkit-keyframes cubeHeight {
+  0%, 10%, 30%, 40%, 100% {
+    height: 2em;
+  }
+  5%, 35% {
+    height: 1.5em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@keyframes cubeHeight {
+  0%, 10%, 30%, 40%, 100% {
+    height: 2em;
+  }
+  5%, 35% {
+    height: 1.5em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@-webkit-keyframes cubeLeft {
+  0%, 100% {
+    left: -4em;
+  }
+  40% {
+    left: 2em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@keyframes cubeLeft {
+  0%, 100% {
+    left: -4em;
+  }
+  40% {
+    left: 2em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+.cube > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  opacity: 0.9;
+  box-shadow: 0 0 1em #000 inset;
+}
+.cube .front {
+  transform: translateZ(1em);
+}
+.cube .right {
+  transform: rotateY(90deg) translateZ(1em);
+}
+.cube .back {
+  transform: rotateY(180deg) translateZ(1em);
+}
+.cube .left {
+  transform: rotateY(270deg) translateZ(1em);
+}
+.cube .top {
+  width: 2em;
+  height: 2em;
+  background-image: linear-gradient(90deg, #0000, #0009 25% 75%, #0000);
+  background-size: 4em 2em;
+  background-repeat: no-repeat;
+  transform: rotateX(90deg) translateZ(1em);
+  -webkit-animation: topShadow 4s infinite linear;
+          animation: topShadow 4s infinite linear;
+  -webkit-animation-delay: inherit;
+          animation-delay: inherit;
+}
+@-webkit-keyframes topShadow {
+  0%, 10% {
+    background-position-x: 2em;
+  }
+  40%, 100% {
+    background-position-x: -6em;
+  }
+}
+@keyframes topShadow {
+  0%, 10% {
+    background-position-x: 2em;
+  }
+  40%, 100% {
+    background-position-x: -6em;
+  }
+}
+.cube .bottom {
+  width: 2em;
+  height: 2em;
+  bottom: 0;
+  transform: rotateX(270deg) translateZ(1em);
+}
+
+.cubeShadow {
+  position: absolute;
+  top: 50%;
+  width: 2em;
+  height: 2em;
+  background-color: #0007;
+  box-shadow: 0 0 1em #000;
+  -webkit-animation: cubeShadow 4s infinite ease-out, shadowLeft 4s infinite linear;
+          animation: cubeShadow 4s infinite ease-out, shadowLeft 4s infinite linear;
+}
+.cubeShadow:nth-child(2) {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+@-webkit-keyframes cubeShadow {
+  0%, 40% {
+    opacity: 0.8;
+    transform: translateY(-50%) rotate(90deg) translateZ(1px) scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: translateY(-50%) rotate(30deg) translateZ(1px) scale(2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-50%) rotate(0deg) translateZ(1px) scale(1);
+  }
+}
+@keyframes cubeShadow {
+  0%, 40% {
+    opacity: 0.8;
+    transform: translateY(-50%) rotate(90deg) translateZ(1px) scale(1);
+  }
+  70% {
+    opacity: 0.3;
+    transform: translateY(-50%) rotate(30deg) translateZ(1px) scale(2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(-50%) rotate(0deg) translateZ(1px) scale(1);
+  }
+}
+@-webkit-keyframes shadowLeft {
+  0%, 100% {
+    left: calc(50% - 4em);
+  }
+  40% {
+    left: calc(50% + 2em);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@keyframes shadowLeft {
+  0%, 100% {
+    left: calc(50% - 4em);
+  }
+  40% {
+    left: calc(50% + 2em);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+.ball {
+  position: absolute;
+  top: 1em;
+  left: -1em;
+  width: 2em;
+  height: 2em;
+  background-color: lightblue;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at top, #0000, #000e 90%);
+  -webkit-animation: sceneRotate 30s infinite linear reverse, ballBounce 4s infinite ease-out;
+          animation: sceneRotate 30s infinite linear reverse, ballBounce 4s infinite ease-out;
+}
+@-webkit-keyframes ballBounce {
+  0%, 100% {
+    top: 1em;
+  }
+  50% {
+    top: -2em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@keyframes ballBounce {
+  0%, 100% {
+    top: 1em;
+  }
+  50% {
+    top: -2em;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+.ballShadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4em;
+  height: 4em;
+  background-image: radial-gradient(#000, #0000 50%);
+  -webkit-animation: ballshadow 4s infinite ease-out;
+          animation: ballshadow 4s infinite ease-out;
+}
+@-webkit-keyframes ballshadow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) translateZ(1px) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) translateZ(1px) scale(2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+@keyframes ballshadow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) translateZ(1px) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) translateZ(1px) scale(2);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+.floor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-3em);
+  width: 15em;
+  height: 15em;
+  background-color: lightcoral;
+  background-image: radial-gradient(#0000, #000 7.5em), repeating-linear-gradient(#0000 0% 50%, #0002 50% 100%), repeating-linear-gradient(90deg, #0000 0% 50%, #0002 50% 100%);
+  background-size: 100%, 1em 1em, 1em 1em;
+  -webkit-animation: floorMove 0.2666666667s infinite linear;
+          animation: floorMove 0.2666666667s infinite linear;
+}
+@-webkit-keyframes floorMove {
+  from {
+    background-position-x: center, 0, 0;
+  }
+  to {
+    background-position-x: center, 1em, 1em;
+  }
+}
+@keyframes floorMove {
+  from {
+    background-position-x: center, 0, 0;
+  }
+  to {
+    background-position-x: center, 1em, 1em;
+  }
+}

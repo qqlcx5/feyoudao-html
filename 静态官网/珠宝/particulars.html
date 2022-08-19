@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/magnifier.css"/>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/elastislide.css" />
+    <link rel="stylesheet" href="css/particulars.css"/>
+    <title>产品详情</title>
+</head>
+<body>
+<div class="container h_top">
+    <div class="row">
+        <div class="col-sm-3"><a href="index.html"><img src="images/logo.png" alt="" class="img-responsive" style="max-width: 100px"/></a></div>
+        <div class="col-sm-6">
+            <form action="">
+                <input type="text" placeholder="请输入关键字"/>
+                <input type="button"value="搜索"/>
+            </form>
+        </div>
+        <div class="col-sm-3" style="margin-top: 3%">
+            <a href="">注册</a>
+            <a href="">登陆</a>
+        </div>
+    </div>
+</div>
+<!--头部-->
+<div class="navcolor" style="background: #f00f00">
+    <div class="container">
+        <nav class="">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                         <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部商品分类 <span class="caret"></span></a>
+                             <ul class="dropdown-menu">
+                                 <li><a href="#">琥珀蜜蜡</a></li>
+                                 <li><a href="#">玛瑙水晶</a></li>
+                                 <li><a href="#">文玩产品</a></li>
+                                 <li><a href="#">翡翠专区</a></li>
+                                 <li><a href="#">和田专区</a></li>
+                                 <li><a href="#">宝石专区</a></li>
+                                 <li><a href="#">其他玉种</a></li>
+                             </ul>
+                         </li>
+                        <li class="dropdown">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="Ajadezone.html">名玉专区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="groupbuying.html">团购</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="activity.html">活动专区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="seckill.html">秒杀专区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="">其他玉种</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="serve.html">客户服务</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+
+        </nav>
+    </div>
+</div>
+<!--导航-->
+<div class="container particulars" style="margin-top: 1%">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="magnifier" id="magnifier1">
+                <div class="magnifier-container">
+                    <div class="images-cover"></div>
+                    <!--当前图片显示容器-->
+                    <div class="move-view"></div>
+                    <!--跟随鼠标移动的盒子-->
+                </div>
+                <div class="magnifier-assembly">
+                    <div class="magnifier-btn">
+                        <span class="magnifier-btn-left">&lt;</span>
+                        <span class="magnifier-btn-right">&gt;</span>
+                    </div>
+                    <!--按钮组-->
+                    <div class="magnifier-line">
+                        <ul class="clearfix animation03">
+                            <li>
+                                <div class="small-img">
+                                    <img src="images/33.jpg" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="small-img">
+                                    <img src="images/2.jpg" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="small-img">
+                                    <img src="images/3.jpg" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="small-img">
+                                    <img src="images/4.jpg" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="small-img">
+                                    <img src="images/5.jpg" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--缩略图-->
+                </div>
+                <div class="magnifier-view"></div>
+                <!--经过放大的图片显示容器-->
+            </div>
+            <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+            <script type="text/javascript" src="js/magnifier.js"></script>
+            <script type="text/javascript">
+                $(function() {
+
+                    var magnifierConfig = {
+                        magnifier : "#magnifier1",//最外层的大容器
+                        /* width : 500,//承载容器宽*/
+                        /* height : 500,//承载容器高*/
+                        moveWidth : null,//如果设置了移动盒子的宽度，则不计算缩放比例
+                        zoom : 3//缩放比例
+                    };
+
+                    var _magnifier = magnifier(magnifierConfig);
+
+                    /*magnifier的内置函数调用*/
+                    /*
+                     //设置magnifier函数的index属性
+                     _magnifier.setIndex(1);
+
+                     //重新载入主图,根据magnifier函数的index属性
+                     _magnifier.eqImg();
+                     */
+                });
+            </script>
+        </div>
+        <!--放大镜-->
+        <div class="col-sm-5">
+            <div class="row">
+                <div class="col-sm-12">天然水晶宝石 海蓝宝吊坠 925纯银镶嵌蓝色项坠 男女饰品 送银链</div>
+                <div class="col-sm-12">内有54-68mm不同尺码不同花色手镯多款，每一只皆为天然缅甸老坑翡翠A货，厂家直销，出厂价，低于市场价数倍，不议价。 图片为室外阳台自然光实拍，所见即所得。 配送中国GTC权威A货鉴定证书，证书网上可查询，支持复鉴！10年全好评口碑店铺，淘字号信誉老店</div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <div class="col-sm-12">原价 <del>￥999999:<small>00</small></del></div>
+                                <div class="col-sm-12">现价￥9.9:<small>00</small></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <div class="col-sm-5"><a href="">110</br>累计评论</a></div>
+                                <div class="col-sm-5"><a href="">110</br>交易成功</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <script src="js/jsAddress.js"></script>
+                    配送至：
+                    <div>
+                        <select id="area"></select>
+                        省：<select id="cmbProvince"></select>
+                        市：<select id="cmbCity"></select>
+                        区：<select id="cmbArea"></select>
+                        <br /><br />
+
+                        <script type="text/javascript">
+                            addressInit('area','cmbProvince','cmbCity','cmbArea','西北地区', '北京', '市辖区', '东城区');
+                            //addressInit('Select1', 'Select2', 'Select3');
+                        </script>
+                    </div>
+                </div>
+                <!--城市三级联动下拉-->
+                <div class="col-sm-12">
+                    快递：￥3：<small>00</small>
+                </div>
+                <div class="col-sm-12">
+                    买家承诺在24小时内发货
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">颜色分类</div>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-3"><button class="btn btn-default">编号：001#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：002#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：003#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：004#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：005#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：006#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：007#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：008#</button></div>
+                                <div class="col-sm-3"><button class="btn btn-default">编号：009#</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--颜色分类-->
+                <div class="col-sm-12">
+                    数量：<button class="">&nbsp;-&nbsp;</button><span>&nbsp;1&nbsp;</span><button>&nbsp;+&nbsp;</button><small>库存：9999（件）</small>
+                </div>
+                <!--数量-->
+                <div class="col-sm-12">
+                    <a href=""><button class="btn btn-default">立即购买</button></a>
+                    <a href=""><button class="btn btn-default">加入购物车</button></a>
+                </div>
+                <!--btn-->
+                <div class="col-sm-12">
+                    支付：<a href="">支付宝支付</a><a href="">微信支付</a><a href="">余额支付</a><a href="">好友代付</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 particularsright">
+            <div class="row">
+                <div class="col-sm-12"><a href="">平台自营</a></div>
+                <div class="col-sm-12"><a href="">商家名称：大祺珠宝</a></div>
+                <div class="col-sm-12"><a href="">客服邮件：senevlonely@163.com</a></div>
+                <div class="col-sm-12"><a href="">客服QQ：981742876</a></div>
+                <div class="col-sm-12"><a href="">公司地址：陕西省西安市碑林区太白路立交</a></div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">7 <p>7天包退</p></div>
+                        <div class="col-sm-4">7 <p>正品保证</p></div>
+                        <div class="col-sm-4">7 <p>商店发货</p></div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">7联系QQ</p></div>
+                        <div class="col-sm-4">7联系QQ</p></div>
+                        <div class="col-sm-4">7联系QQ</p></div>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">扫一扫，访问微信商城</div>
+                <div class="col-sm-12"><img src="images/lonely.jpg" alt="" class="img-responsive" style="display: block;margin: 0 auto"/></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--产品信息-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 recommend">推荐商品</div>
+        <div class="col-sm-12">
+            <script src="js/modernizr.custom.17475.js"></script>
+            <ul id="carousel" class="elastislide-list">
+                <li><a href=""><img src="images/10.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/11.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/12.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/13.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/14.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/15.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/16.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/17.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+                <li><a href=""><img src="images/18.jpg" alt="" class="img-responsive" width="70%"/></a></li>
+            </ul>
+            <script src="http://www.jq22.com/jquery/1.8.3/jquery.min.js"></script>
+            <script type="text/javascript" src="js/jquery.elastislide.js"></script>
+            <script type="text/javascript">
+                $( '#carousel' ).elastislide( {
+                    minItems : 2
+                } );
+            </script>
+        </div>
+    </div>
+</div>
+<!--推荐产品-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="row">
+                <div class="col-sm-12 text-center"><h4>本周同类好评</h4></div>
+
+                <div class="col-sm-12"><img src="images/34.jpg" alt="" class="img-responsive"/><br/>和田玉籽料弥勒佛挂件淘玉出<br/>￥：999:<small>00</small>  </div>
+                <div class="col-sm-12"><img src="images/35.jpg" alt="" class="img-responsive"/><br/>和田玉籽料弥勒佛挂件淘玉出<br/>￥：999:<small>00</small>  </div>
+                <div class="col-sm-12"><img src="images/33.jpg" alt="" class="img-responsive"/><br/>和田玉籽料弥勒佛挂件淘玉出<br/>￥：999:<small>00</small>  </div>
+            </div>
+        </div>
+        <div class="col-sm-10 parameter">
+            <div class="row">
+                <div class="col-sm-12">
+                    <a href="javascript:">商品详情</a>
+                    <a href="javascript:">累计评论</a>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row show">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-4">商品参数： <span>和田玉俄糖料荷塘情趣摆件淘玉</span></div>
+                                <div class="col-sm-4">商品编号： <span>001</span></div>
+                                <div class="col-sm-4">品牌： <span>001</span></div>
+                                <div class="col-sm-4">上架时间： <span>2017-05-12</span></div>
+                                <div class="col-sm-4">商品毛重： <span>293克</span></div>
+                                <div class="col-sm-4">库存： <span>001</span></div>
+                                <div class="col-sm-12"><img src="images/g1.jpg" alt="" class="img-responsive" width="100%"/></div>
+                                <div class="col-sm-12"><img src="images/g2.jpg" alt="" class="img-responsive" width="100%"/></div>
+                                <div class="col-sm-12"><img src="images/g3.jpg" alt="" class="img-responsive" width="100%"/></div>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12" style="margin-top: 2%">
+                            <div class="row">
+                                <div class="col-sm-3">100%<br/><small>好评</small></div>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-2">好评：100%</div>
+                                                <div class="col-sm-10"> <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                         aria-valuemin="0" aria-valuemax="100" style="width: 1000%;">
+                                                        <span class="sr-only">40% 完成</span>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-2">中评：0%</div>
+                                                <div class="col-sm-10">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                             aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                                            <span class="sr-only">0% 完成</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-2">
+                                                    差评：0%
+                                                </div>
+                                                <div class="col-sm-10">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                             aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                                            <span class="sr-only">0% 完成</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row evaluate">
+                                <div class="col-sm-12">
+                                    <a href="">全部评价</a>
+                                    <a href="">好评（0）</a>
+                                    <a href="">中评（0）</a>
+                                    <a href="">差评（0）</a>
+                                    <a href="">用户晒单</a>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <dvv class="col-sm-12">
+                                            无裂痕但也不通透，还有黑点，可是毕竟价格不贵，而且自己喜欢，自己喜欢，自己喜欢，那其他的都不是事儿了，以后会买个更好点的
+                                        </dvv>
+                                        <div class="col-sm-12">
+                                            <div class="col-sm-1"><img src="images/10.jpg" alt=""class="img-responsive"/></div>
+                                            <div class="col-sm-1"><img src="images/11.jpg" alt=""class="img-responsive"/></div>
+                                            <div class="col-sm-1"><img src="images/12.jpg" alt=""class="img-responsive"/></div>
+                                            <div class="col-sm-1"><img src="images/13.jpg" alt=""class="img-responsive"/></div>
+                                            <div class="col-sm-1"><img src="images/14.jpg" alt=""class="img-responsive"/></div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <span>05-15</span>
+                                            <span class="pull-right">郝心（匿名）</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="col-sm-2">
+            <h4>购物指南</h4>
+            <a href="">购物流程</a>
+            <a href="">订单状态</a>
+            <a href="">订单状态</a>
+            <a href="">交易条款</a>
+        </div>
+        <div class="col-sm-2">
+            <h4>支付帮助</h4>
+            <a href="">银行电汇</a>
+            <a href="">余额支付</a>
+            <a href="">在线支付</a>
+        </div>
+        <div class="col-sm-2">
+            <h4>配送说明</h4>
+            <a href="">商品验检与签收</a>
+            <a href="">费送范围及运费</a>
+        </div>
+        <div class="col-sm-2">
+            <h4>售后服务</h4>
+            <a href="">售后服务</a>
+            <a href="">发票制度</a>
+            <a href="">退/换货注意事项</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-6 thumbnail"><img src="images/lonely.jpg" alt="" class="img-responsive"/><p class="text-center">下载安卓版</p></div>
+                <div class="col-sm-6 thumbnail"><img src="images/lonely.jpg" alt="" class="img-responsive"/><p class="text-center">下载IOS版</p></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/particulars.js"></script>
+</body>
+</html>

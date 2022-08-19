@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>#85 in 2021 / GLSL Shader</title>
+
+<link rel="stylesheet" href="css/normalize.min.css">
+
+</head>
+<body>
+
+<script id="fs" type="x-shader/x-fragment">
+  precision mediump float;
+  uniform float time;
+  uniform vec2  mouse;
+  uniform vec2  resolution;
+  // window ratio
+  float ratio = resolution.x / resolution.y; 
+  float PI = 3.1415926;
+  float a = PI * 2.0 / 72.0;
+ 
+  mat2 scale(vec2 scale){
+    return mat2(scale.x, 0.0, 0.0, scale.y);
+  }
+  
+  void main(void) {
+    // center center
+    vec2 p = vec2(gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);
+    // left bottom
+    //vec2 p = gl_FragCoord.xy / resolution.xy;
+    float l = length(p);
+    vec3 c = vec3(l, abs(sin(time) * 1.0 - p.x), abs(cos(time) * 1.0 - p.y));
+    float d = 0.0;
+    for (float i = 0.0; i < 72.0; i++) {
+      p = p + vec2(cos(time) / 100.0, sin(time) / 100.0);
+      vec2 q = p + vec2(
+        cos((0.0 - time * 2.0) * PI / 180.0 * i),
+        sin((0.0 - time * 2.0) * PI / 180.0 * i)) * (0.03 * i);
+      d += 0.01 / length(q);
+    }
+    d = pow(d, 2.0);
+    gl_FragColor = vec4(c * d, 1.0); 
+  }
+</script>
+
+<script id="vs" type="x-shader/x-vertex">
+  attribute vec3 position;
+
+  void main(void){
+    gl_Position = vec4(position, 1.0);
+  }
+</script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

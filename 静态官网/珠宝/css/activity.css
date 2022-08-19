@@ -1,0 +1,20 @@
+.activity>.row>.col-sm-12>.row>.col-sm-12 h3 {
+    color: #f00f00;
+    line-height: 2em;
+    font-size: 1.4em;
+}
+.activity>.row>.col-sm-12 {
+    border: 1px solid #CCCCCC;
+    padding: 1%;
+    margin-top: 1%;
+}
+.activity>.row>.col-sm-12>.row>.col-sm-6>.row>.col-sm-12 {
+    line-height: 3em;
+    font-size: 1.1em;
+}
+.activity>.row>.col-sm-12>.row>.col-sm-6>.row>.col-sm-12:first-child {
+    color: #f00f00;
+}
+.activity>.row>.col-sm-12>.row>.col-sm-6>.row>.col-sm-12:last-child>span {
+    color: #f00f00;
+}

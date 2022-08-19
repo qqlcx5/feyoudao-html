@@ -1,0 +1,37 @@
+.classify>.row>.col-sm-12>.row>.col-sm-11>a {
+    color: #666666;
+    line-height: 2.5em;
+    margin-right: 2%;
+}
+.classify>.row>.col-sm-12>.row>.col-sm-11>a:hover {
+    color: #000000;
+}
+.rank>.row>.col-sm-8>a {
+    color: #000;
+    margin-right: 5%;
+}
+.rank>.row>.col-sm-4>span {
+    margin-right: 5%;
+}
+.rank>.row>.col-sm-4 {
+    text-align: right;
+}
+.rank {
+    margin-bottom: 1%;
+}
+.rank>.row>.col-sm-4>button {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-right: 5%;
+    padding: none;
+    border: 0;
+}
+.col-xs-two {
+    padding: 10px 20px;
+}
+.product span {
+    color: #f00f00;
+    font-size: 1.2em;
+
+}

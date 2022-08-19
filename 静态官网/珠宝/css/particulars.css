@@ -1,0 +1,182 @@
+.particulars>.row>.col-sm-5 {
+    padding-left: 4%;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:first-child {
+    font-size: 1.2em;
+    color: #000000;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(2) {
+    line-height: 2em;
+    text-indent: 2em;
+    margin-top: 1%;
+}
+/*描述*/
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(3) {
+    margin-top: 1%;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(3)>.row>.col-sm-5>.row>.col-sm-12:last-child {
+    color: #f00f00;
+    font-size: 1.5em;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(3)>.row>.col-sm-5>.row>.col-sm-5>a {
+    color: #000000;
+    text-align: center;
+}
+/*价格*/
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(4) {
+    margin-top: 1%;
+    font-size: 1.1em;
+}
+/*城市三级联动*/
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(6) {
+    margin-top: 1%;
+    font-size: 1.1em;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(7)>.row>.col-sm-12:first-child {
+    margin-top: 1%;
+    font-size: 1.1em;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(7) button {
+    margin-top: 10%;
+}
+/*颜色分类*/
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(8) {
+    margin-top: 1%;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(9) {
+    margin-top: 1%;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(10) {
+    margin-top: 1%;
+}
+.particulars>.row>.col-sm-5>.row>.col-sm-12:nth-child(10) a  {
+    display: inline-block;
+    margin-right: 2%;
+    color: #000000;
+}
+/*产品信息结束*/
+.particularsright>.row>.col-sm-12 a {
+    line-height: 2.5em;
+    color: #6e6e6e;
+}
+.particularsright>.row>.col-sm-12:first-child>a {
+    display: block;
+    background: #f00f00;
+    color: #FFFFFF;
+    text-align: center;
+}
+.recommend {
+    border-bottom: 2px solid #080808;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+.parameter>.row>.col-sm-12:first-child {
+    border-bottom: 1px solid #f00f00;
+}
+.parameter>.row>.col-sm-12:first-child>a {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    padding: 7px 30px;
+    line-height: 2em;
+    color: #000000;
+}
+.parameter>.row>.col-sm-12:first-child>a:hover {
+    background: #f00f00;
+    color: #FFFFFF;
+}
+.parameter>.row>.col-sm-12:nth-child(2)>.row>.col-sm-12>.row>.col-sm-4 {
+    line-height: 2.5em;
+}
+.evaluate>.col-sm-12:first-child>a {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    padding: 7px 30px;
+    line-height: 2em;
+    color: #000000;
+}
+.evaluate>.col-sm-12:first-child>a:hover {
+    background: #f00f00;
+    color: #FFFFFF;
+}
+.evaluate>.col-sm-12:nth-child(2) {
+    line-height: 2.5em;
+}
+.evaluate>.col-sm-12:nth-child(2) .col-sm-1 {
+    padding-left: 0px;
+
+}
+.particularsnav {
+    background: url("../images/tgnavbg.jpg");
+    background-size: 100% 100%;
+}
+.particularsnav>.container>.row>.col-sm-12:first-child>h3 {
+    background: -webkit-linear-gradient(top,#000,#f30 50%,#c00 51%,#600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    font-weight: bold;
+}
+.particularsnav>.container>.row>.col-sm-12:last-child {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+.transform>.row>.col-sm-12:first-child {
+    border: 1px solid #CCCCCC;
+    padding: 1% 1%;
+    margin-top: 1%;
+}
+.transform>.row>.col-sm-12:first-child>.row>.col-sm-8>.row>.col-sm-12:first-child {
+    font-size: 3em;
+    background: -webkit-linear-gradient(top,#db860d,#600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+.transform>.row>.col-sm-12>.row>.col-sm-8>.row>.col-sm-12:nth-child(2) {
+    color: #db860d;
+    font-size: 2em;
+    line-height: 3em;
+}
+.transform>.row>.col-sm-12>.row>.col-sm-8>.row>.col-sm-12:nth-child(3) {
+    color: #db860d;
+    font-size: 2em;
+}
+.transform>.row>.col-sm-12>.row>.col-sm-8>.row>.col-sm-12:nth-child(3) button {
+    border: none;
+    background: #600;
+    color: #FFFFFF;
+    padding: 5px 10px;
+
+}
+.transform>.row>.col-sm-12>.row>.col-sm-8>.row>.col-sm-12:nth-child(3) span {
+    line-height: 1.7em;
+
+}
+.particularsbor {
+    border: 1px solid #CCCCCC;
+    padding: 1% 1%;
+    margin-top: 1%;
+}
+.particularsbor>.col-sm-6 {
+    font-size: 1.3em;
+    line-height: 2em;
+    text-align: center;
+}
+.particularsbor>.col-sm-6>.col-sm-12 {
+    background: url("../images/tgbg.jpg");
+    background-size: 100% 100%;
+    font-size: 1.5em;
+    color: #FFFFFF;
+    line-height: 2em;
+}
+.particularsbor>.col-sm-6>.col-sm-12 a {
+    float: right;
+    color: #FFFFFF;
+}
+.particularsbor>.col-sm-6>.col-sm-12 {
+    text-align: left;
+}
+.particularsbor>.col-sm-6>.col-sm-12 small {
+    margin-left: 15%;
+}

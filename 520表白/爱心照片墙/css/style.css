@@ -1,0 +1,75 @@
+﻿@charset "utf-8";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #666;
+    padding: 0;
+    margin: 0;;
+}
+
+body,html{
+    background: black;
+    height: 100%;
+}
+
+
+/*css3实现照片墙的样式*/
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+	margin: auto;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container img {
+    position: absolute;
+    padding: 5px;
+    height: 300px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    z-index: 1;    
+    top:50%;
+    left:50%;
+    -webkit-transform-origin:50% 50%;
+    -moz-transform-origin:50% 50%;
+    transform-origin:50% 50%;
+    -webkit-transform: translate(-50%,-50%) ;
+    -moz-transform: translate(-50%,-50%) ;
+    transform: translate(-50%,-50%) ;
+}
+.start{
+    background-color: blue!important;
+    z-index: 4!important;
+    -webkit-transition: all 0.2s ease-in-out!important;
+    -moz-transition: all 0.2s ease-in-out!important;
+    transition: all 0.2s ease-in-out!important;
+}
+.surprise{    
+    -webkit-transform-origin:50% 50%!important;
+    -moz-transform-origin:50% 50%!important;
+    transform-origin:50% 50%!important;
+    -webkit-transform: rotate(0deg) translate(-50%,-50%) !important;
+    -moz-transform: rotate(0deg) translate(-50%,-50%) !important;
+    transform: rotate(0deg) translate(-50%,-50%) !important;   
+    /* -webkit-transform:!important;
+    -moz- rotate(360deg)transform:rotate(360deg)!important;
+    transform:rotate(360deg)!important;    */
+    top:50%!important;
+    left:50%!important;
+    height: 500px!important;
+    width: 500px!important;
+    z-index: 5!important;
+    background-color: red;
+}

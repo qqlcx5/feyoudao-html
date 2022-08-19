@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(78, 78, 78);
+}
+
+.wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* 滚动条 */
+/*scrollbar*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+    margin-right: 10px;
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 8px;
+    background-color: #f60;
+    -webkit-border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 6px;
+    background-color: #eee;
+}

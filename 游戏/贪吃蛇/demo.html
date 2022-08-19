@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+        <link rel="stylesheet" type="text/css" href="css/test.css"/>
+    </head>
+<body>
+		<div class="wrap">
+		      <h1>贪吃蛇大作战</h1>
+		      <!-- 记录吃了多少个蛋 -->
+		      <p style="font-size:20px;color:red"> count:<span id="score" style="color:black">0</span> </p>
+		      <input id="Pause" type="button" name="name" value="暂停" class="buttom">
+		      <input id="Start" type="button" name="name" value="开始" class="buttom">
+		      <input id="Refresh" type="button" name="name" value="重新开始" class="buttom">
+		      <input id="Speed" type="button" name="name" value="加速" class="buttom"> 
+		      <input id="minus" type="button" name="name" value="减速" class="buttom"/>
+		      <div id="snake_map"></div>
+		      <div class="context">
+		      	本游戏规则：<br /><br />
+		      	&nbsp;&nbsp;1.蛇的运动时间为0.3秒，我们还可以根据以上的按钮进行设置（暂停，开始，重新开始，加速，减速），还可以一直按v键
+		      	把蛇的运动时间从0.3提至为0.1秒。长按v键可缓冲暂停，其上下左右为蛇的方向键。<br /><br />
+		      	&nbsp;&nbsp;2.本游戏蛇是随着吃果实而增长的，蛇在运动的过程中不能碰壁及自己。同时本游戏还可以霸图晋级，霸图后有丰富的奖励。<br />
+		      	<span>快来玩吧！</span>
+		      </div>
+		</div>		
+</body>
+<script type="text/javascript">
+var score = document.getElementById('score');  //获取分数标签
+var map = document.getElementById('snake_map'); // 获取路径地图标签
+var rowNumber = 20;// 行数
+var columnNumber = 20;// 列数;
+var mapWidth = columnNumber * 20 + 'px';// 地图的宽
+var mapHeight = rowNumber * 20 + 'px';// 地图的高
+map.style.width = mapWidth;
+map.style.height = mapHeight;// 设置地图宽高
+var snakeDIVPosition = [];   // 创建一个二维数组,用来记录地图上的所有div的位置
+
+// 通过双层for循环来创建地图元素
+for ( var i = 0; i < rowNumber; i++) {
+    var rowDIV = document.createElement('div');
+    rowDIV.className = 'row';
+    // 将行div添加到路径地图map中
+    map.appendChild(rowDIV);
+    // 创建一个行级数组,用来存储当前行中的每个方块div
+    var rowArray = [];
+    for ( var j = 0; j < columnNumber; j++) {
+        var columnDIV = document.createElement('div');
+        columnDIV.className = 'col';
+        rowDIV.appendChild(columnDIV);
+        // 同时将方块添加到行数组中
+        rowArray.push(columnDIV);
+    }
+    // 当前内层循环结束,将行数组添加到二维数组中
+    snakeDIVPosition.push(rowArray);
+}
+
+// 创建蛇模型
+// 创建一个一维数组,用来存储蛇身所占的div
+var snake = [];
+// 固定蛇身起始长度为3个div
+for ( var i = 0; i < 3; i++) {
+    // 为蛇身设置不同颜色的div
+    snakeDIVPosition[0][i].className = 'col activeSnake';
+    // 存储在蛇身数组中
+    snake[i] = snakeDIVPosition[0][i];
+}
+// 定义变量来控制蛇
+var x = 2;
+var y = 0;// 蛇头的起始位置偏移量
+var scoreCount = 0;// 分数计数器,即吃了多少个蛋
+var eggX = 0;// 记录蛋所在的行位置
+var eggY = 0;// 记录蛋所在的列位置;
+
+var direction = 'right';// 记录蛇移动的方向,初始为向右
+var changeDir = true;// 判断是否需要改变蛇的移动方向
+var delayTimer = null;// 延迟定时器
+
+// 添加键盘事件监听方向键来改变蛇的移动方向
+document.onkeydown = function(event) {
+    // 先判断是否需要改变方向,true表示需要,false表示不需要
+    if (!changeDir) {
+        return;// return空表示直接结束函数,后续代码不执行
+    }
+    var a=1;
+    event = event || window.event;
+    if (direction == 'right' && event.keyCode == 37) {
+        return;// 终止事件执行
+    }
+    if (direction == 'left' && event.keyCode == 39) {
+        return;
+    }
+    if (direction == 'up' && event.keyCode == 40) {
+        return;
+    }
+    if (direction == 'down' && event.keyCode == 38) {
+        return;
+    }
+    if(event.keyCode == 86){
+    	    this.onkeypress=function(){
+		    clearInterval(moveTimer);
+    		moveTimer = setInterval('snakeMove()', 100);
+		} 
+		/*if(a>1){
+		        this.onkeyup=function(){
+		            clearInterval(moveTimer);
+    		        moveTimer = setInterval('snakeMove()', 300);
+	        	}
+		}*/
+    }
+    // 我们通过keyCode确定蛇要移动的方向
+    switch (event.keyCode) {
+    case 37:
+        direction = 'left';// 向左
+        break;
+    case 38:
+        direction = 'up';// 向上;
+        break;
+    case 39:
+        direction = 'right';// 向右
+        break;
+    case 40:
+        direction = 'down';// 向下
+        break;
+    }
+    changeDir = false;
+    delayTimer = setTimeout(function() {
+        // 设置是否需要改变方向
+        changeDir = true;
+    }, 300);
+};
+
+// 开始设置蛇移动逻辑
+// 蛇移动函数
+function snakeMove() {
+    // 根据上面设置的方向来设置蛇头的位置
+    switch (direction) {
+    case 'left':
+        x--;
+        break;
+    case 'right':
+        x++;
+        break;
+    case 'up':
+        y--;
+        break;
+    case 'down':
+        y++;
+        break;
+    };
+    // 判断是否游戏结束
+    if (x < 0 || y < 0 || x >= columnNumber || y >= rowNumber) {
+        alert('Game Over!!!');
+        // 结束蛇移动的定时器
+        clearInterval(moveTimer);
+        return;// 终止键盘事件;
+    }
+    // 如果蛇吃到自己,也要结束游戏
+    for ( var i = 0; i < snake.length; i++) {
+        // 将此时蛇头移动后的位置与之前左右的组成蛇的div的位置进行比较,如果相同则说明吃到自己,游戏结束
+        if (snake[i] == snakeDIVPosition[y][x]) {
+            alert('Game over!!!');
+            clearInterval(moveTimer);
+            return;
+        };
+    }
+    // 判断蛇头移动的位置是否有蛋
+    if (eggX == x && eggY == y) {
+        snakeDIVPosition[eggY][eggX].className = 'col activeSnake';
+        snake.push(snakeDIVPosition[eggY][eggX]);// 加入蛇身
+        scoreCount++;// 记录分数
+        // 更新当前的分数
+        score.innerHTML = scoreCount;
+        // 随机产生一个新的蛋
+        createNewEgg();
+    } else {
+        // 设置蛇碰不到蛋的逻辑
+        // 蛇尾去掉蛇自身的颜色,变成格子的颜色
+        snake[0].className = 'col';
+        // 将蛇尾div从数组中移除
+        snake.shift();
+        // 定位到的新的蛇头加入到蛇数组中
+        snakeDIVPosition[y][x].className = 'col activeSnake';
+        snake.push(snakeDIVPosition[y][x]);
+    };
+};
+
+var moveTimer = setInterval('snakeMove()', 300);
+
+
+// 定义一个生成min,max之间的随机数函数
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+};
+function createNewEgg() {
+    // 随机出新的egg的下标的x和y值
+    eggX = random(0, columnNumber - 1);
+    eggY = random(0, rowNumber - 1);
+
+    // 判断如果随机产生的蛋与蛇身重合,就重新随机产生一个蛋
+    if (snakeDIVPosition[eggY][eggX].className == 'col activeSnake') {
+        createNewEgg();// 重新随机新的egg
+    } else {
+        snakeDIVPosition[eggY][eggX].className = 'col egg';
+    }
+};
+
+createNewEgg();// 在游戏开始的时候生成新的egg
+
+var pause = document.getElementById('Pause');
+var start = document.getElementById('Start');
+var refresh = document.getElementById('Refresh');
+var speed = document.getElementById('Speed');
+// 暂停按钮
+pause.onclick = function() {
+    clearInterval(moveTimer);
+};
+// 开始按钮
+start.onclick = function() {
+    clearInterval(moveTimer);
+    moveTimer = setInterval('snakeMove()', speed1);
+};
+// 刷新按钮
+refresh.onclick = function() {
+    window.location.reload();
+};
+// 加速按钮
+var speed1 = 300;   //游戏的初始化远动时间
+speed.onclick = function() {
+    speed1 -= 50;
+    clearInterval(moveTimer);
+    moveTimer = setInterval('snakeMove()', speed1);
+};
+//减速按钮
+minus.onclick = function(){
+	speed1 += 50;
+    clearInterval(moveTimer);
+    moveTimer = setInterval('snakeMove()', speed1);
+}
+</script>
+</html>
+		

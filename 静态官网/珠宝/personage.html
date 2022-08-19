@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <style>
+        ul li {
+            list-style: none;
+        }
+        #navcategory .li:hover,#navcategory .li.hover{background: #ffffff;color:#000000;}
+        #navcategory .li a:hover{color:#E30000;}
+        #navcategory .li .detail{
+            position: absolute;
+            /*border: solid 1px #E30000;*/
+            background: rgba(255,255,255,.2);
+            padding: 6px 35px 30px 35px;
+            /*background-color: #ffffff;*/
+            left: 178px;
+            top: 0;
+            z-index:-1;
+            width: 550px;
+            height: 404px;
+            display: none;
+            }
+        .placenav {
+            color: #666666;
+            line-height: 4em;
+        }
+        /*位置导航*/
+        .message {
+            border: 1px solid #CCCCCC;
+        }
+       .message>.row>.col-sm-12>a>img {
+           border-radius: 50%;
+           width: 50%;
+           margin: 0 auto;
+           margin-top: 5%;
+       }
+        .message>.row>.col-sm-12>a {
+            color: #6e6e6e;
+            font-size: 1.2em;
+            display: block;
+            text-align: center;
+            line-height: 3em;
+        }
+        .message>.row>.col-sm-12>a:hover {
+            color: #000000;
+        }
+        .message>.row>ul>li>a {
+            color: #6e6e6e;
+            display: block;
+            text-align: center;
+            line-height: 2.5em;
+        }
+        .message>.row>ul>li>a:hover {
+            color: #000000;
+        }
+        .messager>.row>.col-sm-12>.row>.col-sm-12:first-child {
+            border-bottom: 1px solid #CCCCCC;
+            font-size: 1.5em;
+            line-height: 2em;
+        }
+        .messager>.row>.col-sm-12>.row>.col-sm-12:nth-child(2)>.row>.col-sm-6>a {
+            color: #985f0d;
+            line-height: 17em;
+        }
+    </style>
+    <title>个人中心</title>
+</head>
+<body>
+<div class="container h_top">
+    <div class="row">
+        <div class="col-sm-3"><a href="index.html"><img src="images/logo.png" alt="" class="img-responsive" style="max-width: 100px"/></a></div>
+        <div class="col-sm-6">
+            <form action="">
+                <input type="text" placeholder="请输入关键字"/>
+                <input type="button"value="搜索"/>
+            </form>
+        </div>
+        <div class="col-sm-3" style="margin-top: 3%">
+            <a href="register1.html">注册</a>
+            <a href="login.html">登陆</a>
+        </div>
+    </div>
+</div>
+<!--头部-->
+<div class="navcolor" style="background: #f00f00">
+    <div class="container">
+        <nav class="">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">全部商品分类 <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="navcategory">
+                                <li class="li">
+                                    <a href="#">琥珀蜜蜡</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡1</a></li>
+                                        <li><a href="">蜜蜡1</a></li>
+                                        <li><a href="">蜜蜡1</a></li>
+                                        <li><a href="">蜜蜡1</a></li>
+                                        <li><a href="">蜜蜡1</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">玛瑙水晶</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡2</a></li>
+                                        <li><a href="">蜜蜡2</a></li>
+                                        <li><a href="">蜜蜡2</a></li>
+                                        <li><a href="">蜜蜡2</a></li>
+                                        <li><a href="">蜜蜡52</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">文玩产品</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡3</a></li>
+                                        <li><a href="">蜜蜡3</a></li>
+                                        <li><a href="">蜜蜡3</a></li>
+                                        <li><a href="">蜜蜡3</a></li>
+                                        <li><a href="">蜜蜡3</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">翡翠专区</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡4</a></li>
+                                        <li><a href="">蜜蜡4</a></li>
+                                        <li><a href="">蜜蜡4</a></li>
+                                        <li><a href="">蜜蜡4</a></li>
+                                        <li><a href="">蜜蜡4</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">和田专区</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡5</a></li>
+                                        <li><a href="">蜜蜡5</a></li>
+                                        <li><a href="">蜜蜡5</a></li>
+                                        <li><a href="">蜜蜡5</a></li>
+                                        <li><a href="">蜜蜡5</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">宝石专区</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡6</a></li>
+                                        <li><a href="">蜜蜡6</a></li>
+                                        <li><a href="">蜜蜡6</a></li>
+                                        <li><a href="">蜜蜡6</a></li>
+                                        <li><a href="">蜜蜡6</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li"><a href="#">其他玉种</a>
+                                    <ul class="detail">
+                                        <li><a href="">蜜蜡7</a></li>
+                                        <li><a href="">蜜蜡7</a></li>
+                                        <li><a href="">蜜蜡7</a></li>
+                                        <li><a href="">蜜蜡7</a></li>
+                                        <li><a href="">蜜蜡7</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="Ajadezone.html">名玉专区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="groupbuying.html">团购</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="">优惠活动</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="seckill.html">秒杀专区</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="">其他玉种</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="serve.html">客户服务</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+
+        </nav>
+    </div>
+</div>
+<!--导航结束-->
+<div class="container">
+        <div class="row">
+            <div class="col-sm-12 placenav">您现在的位置是：首页 / 个人中心</div>
+            <div class="col-sm-2 message">
+                <div class="row">
+                    <div class="col-sm-12"><a href=""><img src="images/34.jpg" alt="" class="img-responsive"/></a></div>
+                    <div class="col-sm-12"><a href="">郝心</a></div>
+                    <div class="col-sm-12"><a href="">普通会员</a></div>
+                    <ul>
+                        <li><a href="">我的资料</a></li>
+                        <li><a href="">我的订单</a></li>
+                        <li><a href="">我的分享</a></li>
+                        <li><a href="">地址管理</a></li>
+                        <li><a href="">我的留言</a></li>
+                        <li><a href="">分享APP</a></li>
+                        <li><a href="">退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-10 messager">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">个人信息</div>
+                            <div class="col-sm-12" style="margin-top: 1%">
+                                <div class="row">
+                                    <div class="col-sm-2 col-sm-offset-4"><img src="images/27.jpg" alt=""class="img-responsive"/></div>
+                                    <div class="col-sm-6"><a href="">修改头像</a></div>
+                                </div>
+                                </div>
+                            <div class="col-sm-12" style="margin-top: 1%">
+                                <div class="row">
+                                    <div class="col-sm-2 col-sm-offset-4">
+                                        <form action="" class="form-inline">
+                                            <div class="form-group">
+                                                昵称：<input type="text" class="form-control"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+    //功能三：商品分类的切换
+    $('#bs-example-navbar-collapse-1').on('mouseenter','#navcategory .li',function(){
+        // console.log($(this));
+
+        var $div=$(this).children('.detail');
+        $div.toggle();
+        $div.prev().addClass("hover");
+
+    })
+    $('#bs-example-navbar-collapse-1').on('mouseleave','#navcategory .li',function(){
+        var $div=$(this).children('.detail');
+        $div.toggle();
+        $div.prev().removeClass('hover');
+    })
+</script>
+</body>
+</html>

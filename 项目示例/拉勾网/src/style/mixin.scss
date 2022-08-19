@@ -1,0 +1,57 @@
+$themeColor: #11A983;
+$themeFontColor: #dedede;
+$themeSecondColor: #eeeeef;
+
+$baseFontSize: 75;
+// 背景图片地址和大小
+@mixin bgConfig($url) {
+  background: url($url) no-repeat;
+  background-size: 100% 100%;
+}
+
+//定位全屏
+@mixin allCover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+//根据宽高定位上下左右居中
+@mixin locInCenterByWH($width,$height) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$height/2;
+  margin-left: -$width/2;
+}
+
+//transform上下左右居中
+@mixin locInCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin locInVCenter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//定位左右居中
+@mixin locInHCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//用sass计算从px到rem的转换
+@mixin px2rem($name, $px) {
+  #{$name}: $px / $baseFontSize * 1rem;
+}
+
+

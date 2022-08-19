@@ -1,0 +1,131 @@
+﻿                <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>CSS3实现照片墙</title>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container" id="container"></div>
+	
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(function () {
+			var count = 0;
+			var selectFlag = false;
+			var startFlag = false;
+			var roundBox;
+			$("#container").css("width", window.innerHeight * 4 / 3)
+			var appendPic = function (item) {
+				if (selectFlag) {
+					return
+				}
+				var x = Math.random() * 4,
+					y = Math.random() * 4
+				if (!heartFunc(x, y)) {
+					appendPic(item)
+				} else {
+					var back = "jpg";
+					var imgNum = 10;
+					if (item % imgNum == 1) {
+						back = "gif"
+					}
+					if (item % imgNum == 2 || item % imgNum == 3 || item % imgNum == 4) {
+						back = "png"
+					}
+					var html = '<img src="img/img' + item % imgNum + '.' + back + '" class="picBase" id="pic-' + item + '"  />'
+					$("#container").append(html)
+					setTimeout(function () {
+						$("#pic-" + item).css("top", 45 + 25 * (2 - y) * 0.85 + "%").css("left", 50 + 25 * (2 - x) * 0.85 + "%")
+							.css("transform", "rotate("+(25 * (0.5 - Math.random())) + "deg) translate(-50%,-50%)")
+							.css("width", "100px").css("height", "100px")
+					}, 500);
+
+				}
+
+			}
+			var init = function () {
+				for (var i = 1; i < 100; i++) {
+					appendPic(i)
+					count++
+				}
+				// setTimeout(function () {
+				// 	if(selectFlag){
+				// 		return
+				// 	}
+				// 	appendPic(count)
+				// 	count++;
+				// 	init()
+				// }, 1000);				
+			}
+			var selectFunc = function () {
+				$(".surprise").removeClass("surprise").css("transform", "rotate("+(25 * (0.5 - Math.random())) + "deg) ")
+				$("#pic-" + Math.floor(Math.random() * count)).addClass("surprise")		
+				$(".start").removeClass("start")		
+			}
+			var comfirmFunc = function () {				
+				startFunc();
+			}
+			var startFunc = function () {
+				$(".surprise").removeClass("surprise")
+				roundBox= window.setInterval(function(){
+					
+				$(".start").removeClass("start")
+					for (var i = 1; i < count; i++) {
+					if(i%20==Math.floor(Math.random() * 20)){
+						$("#pic-" + i).addClass("start")
+					}					
+				}
+				},200)				
+			}
+
+			var enterNum=0
+			$(document).keydown(function (e) {
+				selectFlag = true;
+				if (!e) var e = window.event;
+				if (e.keyCode == 32) { //选
+					if(enterNum%2==0){
+						startFunc();
+					}else{			
+						startFlag=true		
+						window.clearInterval(roundBox)					
+						$(".start").removeClass("start")
+						selectFunc();
+					}
+					enterNum++
+					// startFunc();
+				}
+				if (e.keyCode == 13) { //存
+					comfirmFunc();
+				}
+			});
+
+
+			var heartFunc = function (x, y) {
+				// console.log(x,y)
+				if (x >= 0 && x < 1) {
+					if (y < (x + 3) && y > (-x + 2)) {
+						return true
+					}
+				} else if (x >= 1 && x < 2) {
+					if (y < (-x + 5) && y > (-x + 2)) {
+						return true
+					}
+				} else if (x >= 2 && x < 3) {
+					if (y < (x + 1) && y > (x - 2)) {
+						return true
+					}
+				} else if (x >= 3 && x < 4) {
+					if (y < (-x + 7) && y > (x - 2)) {
+						return true
+					}
+				}
+				return false
+			}
+
+			init();
+		})
+	</script>
+</body>
+
+</html>
